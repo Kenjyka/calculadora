@@ -10,6 +10,7 @@ let displayMinor = display.firstElementChild
 let displayText = display.lastElementChild
 let conta = []
 let index = 0
+let foiCalculado = false
 
 
 displayText.addEventListener('keyup', salvarDisplay)
@@ -74,6 +75,7 @@ function clear() {
     index = 0
     displayMinor.innerText = ''
     displayText.value = ''
+    foiCalculado = false
 }
 
 function adicionar(num) {
@@ -96,6 +98,7 @@ function salvarDisplay() {
 function operador(operador) {
     if(displayText.value) {
         salvar()
+        foiCalculado = false
         index++
         conta[index] = operador
         index++
@@ -121,7 +124,8 @@ function calcular() {
         showMinorText()
         index = 0
         conta = []
-        displayText.value = eval(result)    
+        displayText.value = eval(result) 
+        foiCalculado = true   
     }
 }
 
@@ -129,29 +133,33 @@ function numberVerifier(evento) {
     evento = (evento) ? evento : window.event
     var codChar = (evento.which) ? evento.which : evento.keyCode
     console.log(codChar)
-    if(codChar == 43 || codChar == 45 || codChar == 42 || codChar == 47 || codChar == 61 || codChar == 99) {
-        switch (codChar) {
-            case 43:
-                operador('+')
-                break;
-            case 45:
-                operador('-')
-                break
-            case 42:
-                operador('*')
-                break
-            case 47:
-                operador('/')
-                break
-            case 61: 
-                calcular()
-                break
-            case 99:
-                clear()
-                break
-            default:
-                break;
-        }
+
+    if (foiCalculado) clear()
+
+    switch (codChar) {
+        case 43:
+            operador('+')
+            break;
+        case 45:
+            operador('-')
+            break
+        case 42:
+            operador('*')
+            break
+        case 47:
+            operador('/')
+            break
+        case 61: 
+            calcular()
+            break
+        case 99:
+            clear()
+            break
+        case 13:
+            calcular()
+            break
+        default:
+            break;
     }
     if (codChar > 31 && (codChar < 48 || codChar > 57) && codChar != 46) {
         return false;
