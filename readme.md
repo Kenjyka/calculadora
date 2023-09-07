@@ -11,3 +11,5 @@ this is a practice project, to train the capacities of selecting and changing ob
 |-|Subtraction|
 |*|Multiplication|
 |/|Division|
+|Enter|Show the result|
+|=|Show the result|
