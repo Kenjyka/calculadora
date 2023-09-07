@@ -1,0 +1,161 @@
+@font-face {
+    font-family: 'digitalClock';
+    src: url(font/LCD-BOLD.TTF);
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+main section {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+section footer {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
+section > footer a {
+    text-decoration: none;
+    color: rgb(94, 94, 94);
+}
+#display {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    background-color: black;
+    color: #fff;
+    text-align: right;
+    font-family: 'digitalClock', Arial, Helvetica, sans-serif ;
+    color: #0de820;
+    max-height: 300px;
+}
+#display span {
+    height: 30px;
+    overflow: hidden;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    display: flex;
+}
+#display input {
+    background-color: inherit;
+    border: none;
+    color: inherit;
+    height: 50px;
+    text-align: inherit;
+    font-size: 20pt;
+    box-sizing: border-box;
+    padding: 15px;
+    font-family: inherit;
+    font-size: auto;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+#display input:focus{
+    outline: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+#display span {
+    min-height: 30px;
+    height: auto;
+}
+main table {
+    width: 100%;
+    height: 80%;
+    border-spacing: 20px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
+main table td{
+    background-color: rgb(212, 212, 212);
+    width: 20%;
+    height: 20%;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px 4px rgb(100, 100, 100);
+    font-size: 20pt;
+}
+main > section {
+    background-color: rgb(202, 202, 202);
+    padding: 20px 20px 40px 20px;
+    border-radius: 20px;
+    box-shadow: 4px 4px 0px 4px rgb(128, 128, 128);
+}
+.blue {
+    color: #fff;
+    background-color: #02b4a5;
+    box-shadow: 4px 4px 0px 4px #006363;
+}
+
+.blue-clicked {
+    box-shadow: inset 4px 4px 0px 4px #006363!important;
+}
+
+.number {
+    font-size: 30pt;
+}
+
+#erase {
+    color: #fff;
+    background-color: #C13829;
+    box-shadow: 4px 4px 0px 4px #742218;
+}
+.clicked-erase {
+    box-shadow: inset 4px 4px 0px 4px #742218!important;
+}
+
+.clicked {
+    box-shadow: inset 4px 4px 0px 4px rgb(100, 100, 100);
+}
+
+@media (max-width:600px) {
+    .number {
+        font-size: 20pt;
+    }
+    #erase {
+        font-size: 12pt;
+    }
+    main > section {
+        width: 83vw;
+    }
+}
